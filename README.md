@@ -51,7 +51,7 @@ has_one :address
 
 | Column       | Type       | Options                        |
 | ------------ | ---------- | ------------------------------ |
-| postal_code  | integer    | null: false                    |
+| postal_code  | string     | null: false                    |
 | region       | string     | null: false                    |
 | city         | string     | null: false                    |
 | address_line | string     | null: false                    |
