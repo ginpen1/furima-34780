@@ -52,7 +52,7 @@ has_one :address
 | Column       | Type       | Options                        |
 | ------------ | ---------- | ------------------------------ |
 | postal_code  | string     | null: false                    |
-| region       | string     | null: false                    |
+| region_id    | integer    | null: false                    |
 | city         | string     | null: false                    |
 | address_line | string     | null: false                    |
 | apartment    | string     |                                |
