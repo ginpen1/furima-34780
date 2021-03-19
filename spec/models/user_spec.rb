@@ -111,12 +111,12 @@ RSpec.describe User, type: :model do
         expect(@user.errors.full_messages).to include('First name is invalid')
       end
       it 'last_name_kanaは全角（カタカナ）以外では登録できない' do
-        @user.last_name_kana = '佐藤'
+        @user.last_name_kana = 'ｻﾄｳ'
         @user.valid?
         expect(@user.errors.full_messages).to include('Last name kana is invalid')
       end
       it 'first_name_kanaは全角（カタカナ）以外では登録できない' do
-        @user.first_name_kana = '亮太'
+        @user.first_name_kana = 'ﾘｮｳﾀ'
         @user.valid?
         expect(@user.errors.full_messages).to include('First name kana is invalid')
       end
