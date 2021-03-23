@@ -7,7 +7,7 @@ FactoryBot.define do
     postage_id       { '2' }
     region_id        { '2' }
     shipping_date_id { '2' }
-    price            { '300' }
+    price            { 300 }
 
     user
 

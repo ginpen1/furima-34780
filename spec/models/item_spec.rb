@@ -64,12 +64,12 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include('User must exist')
       end
       it 'priceが300円以上でないと保存できない' do
-        @item.price = '299'
+        @item.price = 299
         @item.valid?
         expect(@item.errors.full_messages).to include('Price must be greater than or equal to 300')
       end
       it 'priceが10000000未満でないと保存できない' do
-        @item.price = '10000000'
+        @item.price = 10000000
         @item.valid?
         expect(@item.errors.full_messages).to include('Price must be less than 10000000')
       end
@@ -77,6 +77,31 @@ RSpec.describe Item, type: :model do
         @item.price = '３００'
         @item.valid?
         expect(@item.errors.full_messages).to include('Price is not a number')
+      end
+      it 'category_idが1では登録できない' do
+        @item.category_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Category must be other than 1')
+      end
+      it 'state_idが1では登録できない' do
+        @item.state_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include('State must be other than 1')
+      end
+      it 'postage_idが1では登録できない' do
+        @item.postage_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Postage must be other than 1')
+      end
+      it 'region_idが1では登録できない' do
+        @item.region_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Region must be other than 1')
+      end
+      it 'shipping_date_idが1では登録できない' do
+        @item.shipping_date_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Shipping date must be other than 1')
       end
     end
   end
