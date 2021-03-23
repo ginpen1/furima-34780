@@ -14,7 +14,6 @@ class Item < ApplicationRecord
     validates :image
     validates :name
     validates :text
-    validates :price
   end
 
   with_options presence: true, numericality: { other_than: 1 } do
@@ -25,4 +24,9 @@ class Item < ApplicationRecord
     validates :shipping_date_id
   end
 
+  with_options presence: true,
+               format: { with: /\A[0-9]+\z/ },
+               numericality: { greater_than_or_equal_to: 300, less_than: 10000000 } do
+    validates :price
+  end
 end
