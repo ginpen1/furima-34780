@@ -9,17 +9,8 @@ class BuyerAddress
     validates :user_id
     validates :item_id
     validates :token
-  end
-
-  with_options presence: true,
-               format: { with: /\A[0-9]{3}-[0-9]{4}\z/ } do
-    validates :postal_code
-  end
-
-  with_options presence: true,
-               format: { with: /\A\d{1,11}\z/ },
-               numericality: { only_integer: true } do
-    validates :phone_number
+    validates :postal_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/ }
+    validates :phone_number, format: { with: /\A\d{1,11}\z/ }, numericality: { only_integer: true }
   end
 
   def save
