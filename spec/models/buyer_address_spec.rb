@@ -74,6 +74,11 @@ RSpec.describe BuyerAddress, type: :model do
         @buyer_address.valid?
         expect(@buyer_address.errors.full_messages).to include('Phone number is invalid')
       end
+      it 'region_idが1では登録できない' do
+        @buyer_address.region_id = 1
+        @buyer_address.valid?
+        expect(@buyer_address.errors.full_messages).to include('Region must be other than 1')
+      end
     end
   end
 end

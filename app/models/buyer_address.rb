@@ -3,7 +3,7 @@ class BuyerAddress
   attr_accessor :postal_code, :region_id, :city, :address_line, :apartment, :phone_number, :user_id, :item_id, :token, :price
 
   with_options presence: true do
-    validates :region_id
+    validates :region_id, numericality: { other_than: 1 }
     validates :city
     validates :address_line
     validates :user_id
